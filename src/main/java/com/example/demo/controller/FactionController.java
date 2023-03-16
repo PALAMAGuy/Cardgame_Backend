@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Carte;
 import com.example.demo.model.Faction;
-import com.example.demo.model.Tokemon;
 import com.example.demo.repository.FactionRepository;
 
 @RestController // This means that this class is a Controller
