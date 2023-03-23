@@ -15,6 +15,11 @@ import com.example.demo.model.Faction;
 import com.example.demo.repository.CarteRepository;
 import com.example.demo.repository.FactionRepository;
 
+/**
+ * Classe permettant la gestion des cartes du jeu
+ * @author Palama Guy
+ */
+
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowCredentials="true")
 @RestController // This means that this class is a Controller
 @RequestMapping(path="api/card") 
@@ -26,6 +31,16 @@ public class CarteController {
 	@Autowired
 	private FactionRepository factionRepository;
 	
+	
+  /**
+   * Méthode permettant d'ajouter une carte
+   * @param name nom de la carte
+   * @param id_faction id de la faction
+   * @param description description de la carte
+   * @param image url de l'image
+   * @param power puissance de la carte
+   * @return retourne le message "Saved" en cas de réussite
+   */
 	@PostMapping(path="/add") // Map ONLY POST Requests
 	  public @ResponseBody String add (@RequestParam String name , 
 			  @RequestParam Long id_faction,
@@ -44,6 +59,10 @@ public class CarteController {
 	    
 	  }
 	
+	/**
+   * Méthode permettant de récupérer le détails de toutes les cartes du jeu
+   * @return retourne un json contenant toutes les cartes du jeu
+   */
 	@GetMapping(path="/all")
 	public @ResponseBody Iterable<Carte> getAll(){
 		return repository.findAll();

@@ -8,7 +8,16 @@ actions the user can perform and what information they can see.
 
 */
 public enum ERole {
+	/**
+	 * USER
+	 */
 	  ROLE_USER,
+	  /**
+		 * MODERATOR
+		 */
 	  ROLE_MODERATOR,
+	  /**
+		 * ADMIN
+		 */
 	  ROLE_ADMIN
 	}

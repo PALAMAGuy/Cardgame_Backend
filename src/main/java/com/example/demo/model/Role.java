@@ -27,26 +27,45 @@ public class Role {
   @Column(length = 20)
   private ERole name;
 
+  /**
+	 * Constructeur
+	 */
   public Role() {
 
   }
 
+  /**
+	 * Constructeur avec paramètre nom
+	 * @param name nom
+	 */
   public Role(ERole name) {
     this.name = name;
   }
-
+  /**
+	 * Getter
+	 * @return data
+	 */
   public Integer getId() {
     return id;
   }
-
+  /**
+	 * Setter
+	 * @param id param
+	 */
   public void setId(Integer id) {
     this.id = id;
   }
-
+  /**
+	 * Getter
+	 * @return data
+	 */
   public ERole getName() {
     return name;
   }
-
+  /**
+	 * Setter
+	 * @param name param
+	 */
   public void setName(ERole name) {
     this.name = name;
   }

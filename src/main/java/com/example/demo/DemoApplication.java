@@ -8,9 +8,18 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.example.demo.model.Faction;
 
+/**
+ * Classe de lancement de l'application
+ * @author Palama Guy
+ */
+
 @SpringBootApplication 
 public class DemoApplication {
 
+	/**
+	 * Méthode de lancement de l'application
+	 * @param args  args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 

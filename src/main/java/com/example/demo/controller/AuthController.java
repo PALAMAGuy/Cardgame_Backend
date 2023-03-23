@@ -34,10 +34,16 @@ import com.example.demo.security.JwtUtils;
 
 import jakarta.validation.Valid;
 
+/**
+ * Classe d'authentification
+ * @author Palama Guy
+ */
+
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowCredentials="true")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
+
   @Autowired
   AuthenticationManager authenticationManager;
 
@@ -52,7 +58,12 @@ public class AuthController {
 
   @Autowired
   JwtUtils jwtUtils;
-
+  
+  /**
+   * Méthode permettant l'authentification d'un utilisateur
+   * @param loginRequest récupère les tokens d'identification
+   * @return retourne les infos de l'utilisateur
+   */
   @PostMapping("/signin")
   public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -76,6 +87,11 @@ public class AuthController {
                                    roles));
   }
 
+  /**
+   * Méthode permettant le création d'un compte utilisateur
+   * @param signUpRequest récupère les tokens d'identification
+   * @return retourne "User registered successfully!" dans le cas ou l'utilisateur a bien été enregistré
+   */
   @PostMapping("/signup")
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
     if (userRepository.existsByUsername(signUpRequest.getUsername())) {
@@ -127,6 +143,10 @@ public class AuthController {
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
   }
 
+  /**
+   * Méthode permettant a l'utilisateur de se déconnecter
+   * @return retourne "You've been signed out!" dans le cas ou l'utilisateur a bien été déconnecté
+   */
   @PostMapping("/signout")
   public ResponseEntity<?> logoutUser() {
     ResponseCookie cookie = jwtUtils.getCleanJwtCookie();
